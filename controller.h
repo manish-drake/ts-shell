@@ -22,8 +22,8 @@ public:
 
   void start()
   {
-    epApp.Service()->Bind(app.Service());
-    epRoute.Service()->Bind(Router::Instance()->Service());
+    app.Service()->Bind(epApp.Service());
+    Router::Instance()->Service()->Bind(epRoute.Service());
 
     app.Register("ipc:///tmp/app6000.ipc");
   }

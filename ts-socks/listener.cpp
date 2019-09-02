@@ -50,13 +50,13 @@ void Listener::Setup(const char *address)
                     response = subscriber(messages);
                 }
 
-                if (response.size() > 0)
-                {
-                    socket.send(_id, 10, ZMQ_SNDMORE);
-                    zmq::message_t responseMsg(response.size());
-                    memcpy(responseMsg.data(), response.c_str(), response.size());
-                    socket.send(responseMsg, 0);
-                }
+                // if (response.size() > 0)
+                // {
+                //     socket.send(_id, 10, ZMQ_SNDMORE);
+                //     zmq::message_t responseMsg(response.size());
+                //     memcpy(responseMsg.data(), response.c_str(), response.size());
+                //     socket.send(responseMsg, 0);
+                // }
             }
         }
         socket.unbind(add);

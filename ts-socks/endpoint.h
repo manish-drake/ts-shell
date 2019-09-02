@@ -19,10 +19,11 @@ class Endpoint
     Listener m_listner;
     string m_ep;
     int epId = 0;
-    void Receive();
+    void setup();
     string Send(const string &address, const string &message);
     string Send(const string &address, std::vector<std::string> &messages);
     ISockService m_sockService;
+    zmq::socket_t m_sock;
   public:
     Endpoint(const char *id);
     Endpoint(const int &port);

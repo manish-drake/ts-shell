@@ -33,12 +33,12 @@ class ISockService
     {
         m_receive = p;
     };
-    void Bind(ISockService *client)
+    void Bind(ISockService *server)
     {
-        client->m_send = m_send;
-        m_receive = client->m_receive;
-        client->m_isService = false;
-        m_isService = true;
+        m_send = server->m_send;
+        server->m_receive = m_receive;
+        server->m_isService = true;
+        m_isService = false;
     }
 };
 #endif //ISOCKSERVICE_H
